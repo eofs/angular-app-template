@@ -1,0 +1,32 @@
+doctype 5
+html(ng-app='myApp')
+    head
+        title= title
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+        meta(charset='utf-8')
+        base(href='/')
+        link(rel='stylesheet', href='/static/css/bootstrap.min.css')
+        link(rel='stylesheet', href!="/static/css/<%= grunt.config.get('pkg.name') %>.css")
+        script(src!="/static/js/jquery.js")
+        script(src!="/static/js/bootstrap.js")
+        script(src!="/static/js/angular.js")
+        script(src!="/static/js/angular-plugins.js")
+        script(src!="/static/js/angular-ui.js")
+        script(src!="/static/js/<%= grunt.config.get('pkg.name') %>.js")
+    body
+        .navbar.navbar-default(role='navigation')
+            .navbar-header
+                button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-ex1-collapse')
+                    span.icon-bar
+                    span.icon-bar
+                    span.icon-bar
+                a.navbar-brand(href='/') My App
+            .collapse.navbar-collapse.navbar-ex1-collapse
+                ul.nav.navbar-nav
+                    li
+                        a(href='/') Home
+                    li
+                        a(href='/example') Example
+        #content
+          div(ng-view)

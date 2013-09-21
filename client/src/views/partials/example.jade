@@ -1,0 +1,21 @@
+.container
+    h1 Example
+    p This page demonstrates simple two-way binding functionality.
+
+    form(role='form')
+        .form-group
+            label(for='searchInput') Search
+            input.form-control#searchInput(ng-model='query.search', placeholder='Search for car makers')
+        .form-group
+            label(for='orderInput') Order by
+            select.form-control#orderInput(ng-model='query.order')
+                option(value='country') Country
+                option(value='name') Name
+        .form-group
+            label(for='countryInput') By country
+            select.form-control#countryInput(ng-model='query.country', ng-options='maker.country as maker.country for maker in makers | unique:"country"')
+
+    ul.makers
+        li(ng-repeat='maker in makers | filter:{country: query.country}| filter:query.search | orderBy:query.order')
+            strong {{maker.name}}
+            p {{maker.country}}

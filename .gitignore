@@ -1,0 +1,5 @@
+node_modules/
+
+# Grunt
+client/dist/
+client/src/views/**/*.html
