@@ -8,6 +8,8 @@ This project contains client and server subprojects.
 * Install node.js (0.10 or later should work)
 * Install grunt-cli
 
+<!-- Command -->
+
     npm install -g grunt-cli
 
 ### Application server
@@ -37,6 +39,11 @@ Start the server
 
     cd server
     node app.js
+
+Or you can use "Supervisor" to run your server so it restarts automatically after a crash.
+
+    cd server
+    grunt supervise
 
 ## Development
 
