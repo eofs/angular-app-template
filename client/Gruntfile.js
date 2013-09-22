@@ -31,7 +31,10 @@ module.exports = function(grunt) {
     src: {
       js: ['src/**/*.js', '<%= distdir %>/templates/**/*.js'],
       jade: ['src/views/**/*.jade'],
-      stylus: ['src/styles/**/*.styl'],
+      stylus: {
+        main: ['src/styles/styles.styl'],
+        watch: ['src/styles/**/*.styl']
+      },
       html: {
         partials: ['src/views/**/*.html', '!src/views/index.html'],
         index: ['src/views/index.html']
@@ -80,11 +83,11 @@ module.exports = function(grunt) {
     },
     watch: {
       all: {
-        files: ['<%= src.js %>', '<%= src.jade %>', '<%= src.stylus %>'],
+        files: ['<%= src.js %>', '<%= src.jade %>', '<%= src.stylus.watch %>'],
         tasks: ['default', 'timestamp']
       },
       build: {
-        files: ['<%= src.js %>', '<%= src.jade %>', '<%= src.stylus %>'],
+        files: ['<%= src.js %>', '<%= src.jade %>', '<%= src.stylus.watch %>'],
         tasks: ['build', 'timestamp']
       }
     },
@@ -98,7 +101,7 @@ module.exports = function(grunt) {
     stylus: {
       build: {
         files: [
-          {src: ['<%= src.stylus %>'], dest:'<%= distdir %>/css/<%= pkg.name %>.css'}
+          {src: ['<%= src.stylus.main %>'], dest:'<%= distdir %>/css/<%= pkg.name %>.css'}
         ]
       }
     },
