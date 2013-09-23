@@ -32,7 +32,7 @@ module.exports = function(grunt) {
       js: ['src/**/*.js', '<%= distdir %>/templates/**/*.js'],
       jade: ['src/views/**/*.jade'],
       stylus: {
-        main: ['src/styles/styles.styl'],
+        build: ['src/styles/styles.styl'],
         watch: ['src/styles/**/*.styl']
       },
       html: {
@@ -101,7 +101,7 @@ module.exports = function(grunt) {
     stylus: {
       build: {
         files: [
-          {src: ['<%= src.stylus.main %>'], dest:'<%= distdir %>/css/<%= pkg.name %>.css'}
+          {src: ['<%= src.stylus.build%>'], dest:'<%= distdir %>/css/<%= pkg.name %>.css'}
         ]
       }
     },
